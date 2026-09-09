@@ -1,0 +1,14 @@
+{
+  "name": "prpoautomation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "ui5 serve --open index.html",
+    "build": "ui5 build --all --clean-dest --dest dist",
+    "build:verbose": "ui5 build --all --clean-dest --dest dist --verbose",
+    "build:debug": "ui5 build --all --clean-dest --dest dist --loglevel silly"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^4.0.0"
+  }
+}

@@ -1,0 +1,36 @@
+_schema-version: "3.3"
+
+ID: prpoautomation
+version: 1.0.0
+
+modules:
+
+  - name: prpoautomation-dinesh
+    type: nodejs
+    path: .
+
+    parameters:
+      memory: 512M
+      disk-quota: 1024M
+
+    requires:
+      - name: prpoautomation-destination
+      - name: prpoautomation-connectivity
+      - name: postgre_poc_dinesh
+
+resources:
+
+  - name: prpoautomation-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+
+  - name: prpoautomation-connectivity
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
+
+  - name: postgre_poc_dinesh
+    type: org.cloudfoundry.existing-service

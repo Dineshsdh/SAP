@@ -1,0 +1,34 @@
+{
+  "name": "prpoautomation-dinesh",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@cap-js/postgres": "^2.3.0",
+    "@sap-cloud-sdk/connectivity": "^4.8.0",
+    "@sap-cloud-sdk/http-client": "^4.8.0",
+    "@sap-cloud-sdk/resilience": "^4.8.0",
+    "@sap/cds": "^10.0.6",
+    "axios": "^1.19.0",
+    "postgresql-client": "^2.13.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "postgres"
+      },
+      "ZMM_STO_PR_PO_SRV": {
+        "kind": "odata-v4",
+        "model": "srv/external/ZMM_STO_PR_PO_SRV",
+        "csrf": true,
+        "credentials": {
+          "destination": "DGW",
+          "path": "/sap/opu/odata/sap/ZMM_STO_PR_PO_SRV"
+        }
+      }
+    }
+  }
+}

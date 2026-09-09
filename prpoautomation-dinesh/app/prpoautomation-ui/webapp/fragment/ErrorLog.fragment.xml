@@ -1,0 +1,74 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="errorLogDialog"
+        title="Error Log"
+        contentWidth="800px"
+        contentHeight="600px"
+        draggable="true"
+        resizable="true">
+
+        <content>
+
+            <VBox class="sapUiMediumMargin">
+
+                <ObjectStatus
+                    text="{dashboard>/selectedPR/Status}"
+                    state="Error"
+                    class="sapUiSmallMarginBottom" />
+
+                <Label text="PR Number(s)" />
+
+                <TextArea
+                    value="{dashboard>/selectedPR/PurReqNumber}"
+                    editable="false"
+                    rows="2"
+                    width="100%" />
+
+                <Label
+                    text="PR Item(s)"
+                    class="sapUiSmallMarginTop" />
+
+                <TextArea
+                    value="{dashboard>/selectedPR/PurReqItemNo}"
+                    editable="false"
+                    rows="3"
+                    width="100%" />
+
+                <Label
+                    text="Error Message"
+                    class="sapUiSmallMarginTop" />
+
+                <TextArea
+                    value="{dashboard>/selectedPR/ErrorMessage}"
+                    editable="false"
+                    rows="8"
+                    width="100%" />
+
+                <Label
+                    text="Error Details"
+                    class="sapUiSmallMarginTop" />
+
+                <TextArea
+                    value="{dashboard>/selectedPR/ErrorDetails}"
+                    editable="false"
+                    rows="10"
+                    width="100%" />
+
+            </VBox>
+
+        </content>
+
+        <endButton>
+
+            <Button
+                text="Close"
+                press=".onCloseErrorLog" />
+
+        </endButton>
+
+    </Dialog>
+
+</core:FragmentDefinition>

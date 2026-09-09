@@ -1,0 +1,210 @@
+<mvc:View
+    controllerName="prpoautomation.controller.POStatus"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+   <Page
+    title="PO Status"
+    showNavButton="true"
+    navButtonPress=".onNavBack">
+
+    <content>
+
+        <VBox class="sapUiMediumMargin">
+
+            <!-- KPI SECTION -->
+
+            <HBox
+                justifyContent="SpaceAround"
+                class="sapUiMediumMarginBottom">
+
+                <GenericTile
+                    header="Total POs"
+                    frameType="OneByOne">
+
+                    <TileContent>
+                        <NumericContent
+                            value="{poStatus>/totalPOs}" />
+                    </TileContent>
+
+                </GenericTile>
+
+                <GenericTile
+                    header="Output Success"
+                    frameType="OneByOne">
+
+                    <TileContent>
+                        <NumericContent
+                            value="{poStatus>/outputSuccess}" />
+                    </TileContent>
+
+                </GenericTile>
+
+                <GenericTile
+                    header="Open GRN"
+                    frameType="OneByOne">
+
+                    <TileContent>
+                        <NumericContent
+                            value="{poStatus>/openGRN}" />
+                    </TileContent>
+
+                </GenericTile>
+
+                <GenericTile
+                    header="Completed GRN"
+                    frameType="OneByOne">
+
+                    <TileContent>
+                        <NumericContent
+                            value="{poStatus>/completedGRN}" />
+                    </TileContent>
+
+                </GenericTile>
+
+            </HBox>
+
+            <!-- TOOLBAR -->
+
+            <Toolbar>
+
+                <Title
+                    text="Purchase Order Status"
+                    level="H2" />
+
+                <ToolbarSpacer />
+
+                <Text
+                    text="Total : {poStatus>/totalPOs}" />
+
+                <ToolbarSpacer />
+
+                <SearchField
+                    width="300px"
+                    placeholder="Search PO / PR / Vendor"
+                    liveChange=".onSearch" />
+
+                <Button
+                    text="Refresh"
+                    icon="sap-icon://refresh"
+                    press=".onRefresh" />
+
+            </Toolbar>
+
+            <!-- TABLE -->
+
+            <Table
+                id="poTable"
+                width="100%"
+                growing="true"
+                growingThreshold="20"
+                items="{poStatus>/POs}">
+
+                <columns>
+
+                    <Column width="11rem">
+                        <Text text="PO Number" />
+                    </Column>
+
+                    <Column>
+                        <Text text="PR Number" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Vendor" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Vendor Name" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Plant" />
+                    </Column>
+
+                    <Column>
+                        <Text text="PO Qty" />
+                    </Column>
+
+                    <Column>
+                        <Text text="GRN Qty" />
+                    </Column>
+
+                    <Column>
+                        <Text text="GRN Status" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Output Status" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Created By" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Delivery Date" />
+                    </Column>
+
+                </columns>
+
+                <items>
+
+                    <ColumnListItem
+                        type="Active"
+                        press=".onRowPress">
+
+                        <cells>
+
+                            <!-- PO NUMBER HIGHLIGHT -->
+
+                            <ObjectIdentifier
+                                title="{poStatus>PONumber}" />
+
+                            <Text
+                                text="{poStatus>PurReqNumber}" />
+
+                            <Text
+                                text="{poStatus>Vendor}" />
+
+                            <Text
+                                text="{poStatus>VendorName}" />
+
+                            <Text
+                                text="{poStatus>Plant}" />
+
+                            <Text
+                                text="{poStatus>POQty}" />
+
+                            <Text
+                                text="{poStatus>GRNQty}" />
+
+                            <ObjectStatus
+                                text="{poStatus>GRNStatus}"
+                                state="{= ${poStatus>GRNStatus} === 'COMPLETED' ? 'Success' : 'Warning'}" />
+
+                            <ObjectStatus
+                                text="{poStatus>POVendorConfStatus}"
+                                state="{= ${poStatus>POVendorConfStatus} === 'SUCCESS' ? 'Success' : 'Error'}" />
+
+                            <Text
+                                text="{poStatus>CreatedBy}" />
+
+                            <Text
+                                text="{poStatus>PODelDate}" />
+
+                        </cells>
+
+                    </ColumnListItem>
+
+                </items>
+
+            </Table>
+
+        </VBox>
+
+    </content>
+
+</Page>
+
+</mvc:View>

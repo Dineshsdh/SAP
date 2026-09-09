@@ -1,0 +1,213 @@
+<mvc:View
+    controllerName="prpoautomation.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page title="PR to PO Automation Dashboard">
+
+        <content>
+
+            <VBox class="sapUiMediumMargin">
+
+                <Toolbar>
+                    <Title text="PR to PO Automation" />
+                    <ToolbarSpacer />
+                    <Button
+                        text="Refresh"
+                        icon="sap-icon://refresh"
+                        press=".onRefresh" />
+                </Toolbar>
+
+                <HBox
+                    class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+
+                    <ComboBox
+                        id="plantFilter"
+                        width="180px"
+                        placeholder="Plant"
+                        selectionChange=".onFilterChange"
+                        items="{dashboard>/plants}">
+
+                        <core:Item
+                            key="{dashboard>key}"
+                            text="{dashboard>text}" />
+
+                    </ComboBox>
+
+                    <ComboBox
+                        id="mrpFilter"
+                        width="200px"
+                        placeholder="MRP Controller"
+                        selectionChange=".onFilterChange"
+                        items="{dashboard>/mrps}">
+
+                        <core:Item
+                            key="{dashboard>key}"
+                            text="{dashboard>text}" />
+
+                    </ComboBox>
+
+                    <SearchField
+                        id="searchField"
+                        width="300px"
+                        placeholder="Search PR / Material / Vendor"
+                        liveChange=".onSearch" />
+                    
+
+    <ObjectStatus
+        title="Selected PRs"
+        text="{dashboard>/selectedCount}" />
+
+    <ObjectStatus
+        title="Selected Qty"
+        text="{dashboard>/selectedQuantity}" />
+
+    <ObjectStatus
+        title="Selected Value"
+        text="{dashboard>/selectedValue}" />
+
+
+                </HBox>
+
+                <Toolbar>
+
+                    <Button
+                        text="Create PO"
+                        type="Emphasized"
+                        icon="sap-icon://create-entry-time"
+                        press=".onCreatePO" />
+
+
+                    <Button
+                        text="Edit PR"
+                        icon="sap-icon://user-edit"
+                        press=".onEdit" />
+                
+                    <Button
+                        text="Delete"
+                        icon="sap-icon://delete"
+                        press=".onDelete" />
+                
+                    <Button
+                        text="Restore"
+                        icon="sap-icon://undo"
+                        press=".onRestore" />
+                
+                    <Button
+                        text="Error Log"
+                        icon="sap-icon://message-error"
+                        type="Negative"
+                        press=".onErrorLog" />
+
+
+
+                    <ToolbarSpacer />
+
+                    <Button
+                        text="PO Status"
+                        icon="sap-icon://request"
+                        press=".onPOStatus" />
+
+                </Toolbar>
+
+                <Table
+                    id="prTable"
+                    width="100%"
+                    mode="MultiSelect"
+                    selectionChange=".onSelectionChange"
+                    growing="true"
+                    growingThreshold="20"
+                    items="{dashboard>/prs}">
+
+                    <columns>
+
+                        <Column>
+                            <Text text="PR Number" />
+                        </Column>
+
+                        <Column>
+                            <Text text="PR Item" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Description" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Material" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Vendor" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Plant" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Purch Org" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Purch Group" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Quantity" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Currency" />
+                        </Column>
+
+                        <Column>
+                            <Text text="Delivery Date" />
+                        </Column>
+
+                    </columns>
+
+                    <items>
+
+                        <ColumnListItem>
+
+                            <cells>
+
+                                <Text text="{dashboard>PurReqNumber}" />
+
+                                <Text text="{dashboard>PurReqItemNo}" />
+
+                                <Text text="{dashboard>PRItemDesc}" />
+
+                                <Text text="{dashboard>MaterialNo}" />
+
+                                <Text text="{dashboard>FixedVendor}" />
+
+                                <Text text="{dashboard>PlantCode}" />
+
+                                <Text text="{dashboard>PurchasingOrg}" />
+
+                                <Text text="{dashboard>PurchasingGrp}" />
+
+                                <Text text="{dashboard>OrderQuantity}" />
+
+                                <Text text="{dashboard>Currency}" />
+
+                                <Text text="{dashboard>DeliveryDate}" />
+
+                            </cells>
+
+                        </ColumnListItem>
+
+                    </items>
+
+                </Table>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

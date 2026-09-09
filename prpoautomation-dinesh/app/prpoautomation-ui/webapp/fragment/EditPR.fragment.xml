@@ -1,0 +1,110 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="editPRDialog"
+        title="Edit Purchase Requisition"
+        contentWidth="650px"
+        draggable="true"
+        resizable="true">
+
+        <content>
+
+            <VBox class="sapUiMediumMargin">
+
+                <Title
+                    text="PR Details"
+                    level="H3"
+                    class="sapUiSmallMarginBottom" />
+
+                <Label text="PR Number" />
+
+                <Input
+                    value="{dashboard>/selectedPR/PurReqNumber}"
+                    editable="false" />
+
+                <Label
+                    text="PR Item(s)"
+                    class="sapUiSmallMarginTop" />
+
+                <TextArea
+                    value="{dashboard>/selectedPR/PurReqItemNo}"
+                    editable="false"
+                    rows="2"
+                    width="100%" />
+
+                <Label
+                    text="Material"
+                    class="sapUiSmallMarginTop" />
+
+                <Input
+                    value="{dashboard>/selectedPR/MaterialNo}"
+                    editable="false" />
+
+                <Label
+                    text="Description"
+                    class="sapUiSmallMarginTop" />
+
+                <TextArea
+                    value="{dashboard>/selectedPR/PRItemDesc}"
+                    editable="false"
+                    rows="3"
+                    width="100%" />
+
+                <Label
+                    text="Quantity"
+                    class="sapUiSmallMarginTop" />
+
+                <Input
+                    id="editQuantity"
+                    value="{dashboard>/selectedPR/OrderQuantity}"
+                    type="Number" />
+
+                <Label
+                    text="Vendor"
+                    class="sapUiSmallMarginTop" />
+
+                <Input
+                    value="{dashboard>/selectedPR/FixedVendorName}" />
+
+                <Label
+                    text="Plant"
+                    class="sapUiSmallMarginTop" />
+
+                <Input
+                    value="{dashboard>/selectedPR/PlantCode}"
+                    editable="false" />
+
+                <Label
+                    text="Delivery Date"
+                    class="sapUiSmallMarginTop" />
+
+                <Input
+                    value="{dashboard>/selectedPR/DeliveryDate}" />
+
+            </VBox>
+
+        </content>
+
+        <beginButton>
+
+            <Button
+                text="Save"
+                type="Emphasized"
+                icon="sap-icon://save"
+                press=".onSaveEditPR" />
+
+        </beginButton>
+
+        <endButton>
+
+            <Button
+                text="Cancel"
+                press=".onCloseEditPR" />
+
+        </endButton>
+
+    </Dialog>
+
+</core:FragmentDefinition>

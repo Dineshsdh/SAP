@@ -1,0 +1,99 @@
+{
+  "_version": "1.12.0",
+
+  "sap.app": {
+    "id": "prpoautomation",
+    "type": "application",
+    "title": "PR Dashboard",
+    "description": "PR to PO Automation Dashboard",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/prpo/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+
+  "sap.cloud": {
+    "public": true
+  },
+
+  "sap.platform.cf": {},
+
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.120.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.layout": {},
+        "sap.ui.table": {}
+      }
+    },
+"rootView": {
+  "viewName": "prpoautomation.view.App",
+  "type": "XML",
+  "async": true,
+  "id": "app"
+},
+
+    "models": {
+      "pr": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
+
+      "dashboard": {
+        "type": "sap.ui.model.json.JSONModel"
+      }
+    },
+
+    "routing": {
+  "config": {
+    "routerClass": "sap.m.routing.Router",
+    "viewType": "XML",
+    "viewPath": "prpoautomation.view",
+    "controlId": "app",
+    "controlAggregation": "pages",
+    "async": true
+  },
+  "routes": [
+    {
+      "name": "RouteDashboard",
+      "pattern": "",
+      "target": "Dashboard"
+    },
+    {
+      "name": "RoutePOStatus",
+      "pattern": "POStatus",
+      "target": "POStatus"
+    }
+  ],
+  "targets": {
+    "Dashboard": {
+      "viewName": "Dashboard",
+      "viewType": "XML"
+    },
+    "POStatus": {
+      "viewName": "POStatus",
+      "viewType": "XML"
+    }
+  }
+}
+}
+}

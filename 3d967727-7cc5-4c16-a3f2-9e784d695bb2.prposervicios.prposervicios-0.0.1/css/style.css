@@ -1,0 +1,93 @@
+.bbSection {
+  gap: 0.75rem;
+}
+
+.bbCard {
+  border-radius: 0.75rem;
+  border: 1px solid var(--sapList_BorderColor);
+  background: var(--sapGroup_ContentBackground);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  overflow: hidden; /* redondeo real */
+}
+
+.bbFilterBar {
+  border-radius: 0.75rem;
+  border: 1px solid var(--sapList_BorderColor);
+  background: var(--sapGroup_ContentBackground);
+  padding: 0.5rem 0.75rem;
+}
+
+.bbToolbar {
+  padding-left: 0.35rem;
+  padding-right: 0.35rem;
+}
+
+.prWideTable .sapMListTbl {
+  min-width: 2500px;
+}
+
+.prWideTable .sapMList {
+  overflow-x: auto;
+}
+
+.sapUiTableColHdr {
+  font-weight: 600;
+}
+
+.sapUiTableRow:hover {
+  background: var(--sapList_Hover_Background);
+}
+
+.sapUiTableCell {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.sapUiTableVSb {
+  display: none;
+}
+
+.bbLoadMoreBar{
+  border-top: 1px solid var(--sapList_BorderColor);
+  padding: 0.5rem 0;
+}
+
+.bbLoadMoreToolbar{
+  padding: 0 0.75rem;
+}
+
+.bbPrimaryMenuButton .sapMBtnInner {
+  background-color: var(--sapButton_Emphasized_Background);
+  border-color: var(--sapButton_Emphasized_BorderColor);
+  color: var(--sapButton_Emphasized_TextColor);
+}
+
+.bbPrimaryMenuButton .sapMBtnInner:hover {
+  background-color: var(--sapButton_Emphasized_Hover_Background);
+}
+
+.bbPrimaryMenuButton .sapMBtnInner:active {
+  background-color: var(--sapButton_Emphasized_Active_Background);
+}
+
+.bbPrimaryMenuButton .sapMBtnInner .sapMBtnIcon {
+  color: var(--sapButton_Emphasized_TextColor);
+}
+
+.bbDangerButton .sapMBtnInner {
+  background-color: var(--sapButton_Negative_Background);
+  border-color: var(--sapButton_Negative_BorderColor);
+  color: var(--sapButton_Negative_TextColor);
+}
+
+.bbDangerButton .sapMBtnInner:hover {
+  background-color: var(--sapButton_Negative_Hover_Background);
+}
+
+.bbDangerButton .sapMBtnInner:active {
+  background-color: var(--sapButton_Negative_Active_Background);
+}
+
+.bbDangerButton .sapMBtnIcon {
+  color: var(--sapButton_Negative_TextColor);
+}

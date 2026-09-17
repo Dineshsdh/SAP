@@ -1,0 +1,290 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:table="sap.ui.table">
+
+  <table:Table
+    id="prTable"
+    rows="{prLocal>/rows}"
+    visibleRowCount="{ui>/visibleRowCount}"
+    visibleRowCountMode="Fixed"
+    enableSelectAll="false"
+    selectionMode="MultiToggle"
+    enableColumnReordering="true"
+    width="100%"
+    rowSelectionChange=".onPRTableSelectionChange">
+    
+    <table:rowSettingsTemplate>
+      <table:RowSettings
+        highlight="{
+          = ${prLocal>SimulationState} === 'PENDING'
+              ? 'Warning'
+              : (${prLocal>SimulationState} === 'DONE'
+                  ? ( ${prLocal>SimulationError} ? 'Error' : 'Success' )
+                  : 'None')
+        }"
+        highlightText="{
+          = ${prLocal>SimulationState} === 'PENDING'
+              ? 'Simulating...'
+              : (${prLocal>SimulationState} === 'DONE'
+                  ? ( ${prLocal>SimulationError} ? 'Simulation Error' : 'OK' )
+                  : '')
+        }"/>
+    </table:rowSettingsTemplate>
+
+    <table:extension>
+      <OverflowToolbar class="bbToolbar" design="Transparent">
+        <ToolbarSpacer />
+        <Button
+          icon="sap-icon://excel-attachment"
+          text="Export"
+          press="onExportPRsToExcel"/>
+        
+        <MenuButton text="Simulation" icon="sap-icon://world">
+          <menu>
+            <Menu>
+              <MenuItem text="1. Simulate PRsToPO" press="onSimulateSingle"/>
+              <MenuItem text="2. Simulate PRsToPOs" press="onSimulateMultiple"/>
+            </Menu>
+          </menu>
+        </MenuButton>
+
+        <MenuButton text="Create PO" class="bbPrimaryMenuButton">
+          <menu>
+            <Menu>
+              <MenuItem text="1. PRsPOSet" press="onCreatePOSingle"/>
+              <MenuItem text="2. PRsPOsSet" press="onCreatePOMulti"/>
+            </Menu>
+          </menu>
+        </MenuButton>
+
+        <Button text="Edit PR" icon="sap-icon://edit" press="onEditPR"
+                enabled="{= ${ui>/selectedCount} === 1 }"/>
+        <Button text="Delete PR" icon="sap-icon://delete" press="onDeletePR"
+                enabled="{= ${ui>/selectedCount} > 0 }"/>
+        <Button text="Undelete PR" icon="sap-icon://undo" press="onUndeletePR"
+                enabled="{= ${ui>/selectedCount} > 0 }"/>
+        
+        <Button text="Detailed Error Log" icon="sap-icon://message-popup" press="onErrorLog" class="bbDangerButton" />
+
+        <Button icon="sap-icon://refresh" tooltip="Refresh" press="onRefresh"/>
+        <Button text="Email to MRP" icon="sap-icon://email" press="onSendEmail"/>
+
+        <Label text="Rows:"/>
+        <Select selectedKey="{ui>/pageSize}" change="onPageSizeChange" width="6rem">
+          <core:Item key="10" text="10"/>
+          <core:Item key="30" text="30"/>
+          <core:Item key="50" text="50"/>
+          <core:Item key="ALL" text="All"/>
+        </Select>
+      </OverflowToolbar>
+    </table:extension>
+
+    <table:Column id="colPRStatus" label="PR Status" width="9rem">
+      <table:template>
+        <ObjectStatus
+          text="{= ${prLocal>DeletionIndic} === 'X' ? 'Deleted' : 'Active' }"
+          state="{= ${prLocal>DeletionIndic} === 'X' ? 'Error' : 'Success' }"/>
+      </table:template>
+    </table:Column>
+
+    <table:Column id="colStatus" label="Simulation Status" width="10rem">
+      <table:template>
+        
+        <ObjectStatus
+          text="{
+            parts: [
+              { path: 'prLocal>SimulationState' },
+              { path: 'prLocal>SimulationError' },
+              { path: 'prLocal>SimulationWarn' }
+            ],
+            formatter: '.formatter.statusText'
+          }"
+          state="{
+            parts: [
+              { path: 'prLocal>SimulationState' },
+              { path: 'prLocal>SimulationError' },
+              { path: 'prLocal>SimulationWarn' }
+            ],
+            formatter: '.formatter.statusState'
+          }"/>
+
+      </table:template>
+    </table:Column>
+
+    <table:Column sortProperty="PurReqNumber" label="Purchase Requisition" width="11rem">
+      <table:template><Text text="{prLocal>PurReqNumber}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="PurReqItemNo" label="Item" width="5rem">
+      <table:template><Text text="{prLocal>PurReqItemNo}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="PRItemDesc" label="PR Item Description" width="22rem">
+      <table:template>
+        <Text text="{prLocal>PRItemDesc}" tooltip="{prLocal>PRItemDesc}"/>
+      </table:template>
+    </table:Column>
+
+    <table:Column sortProperty="MaterialNo" label="Material" width="10rem">
+      <table:template><Text text="{prLocal>MaterialNo}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="FixedVendor" label="Fixed Vendor" width="10rem">
+      <table:template><Text text="{prLocal>FixedVendor}" tooltip="{prLocal>FixedVendor}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="FixedVendorName" label="Vendor Name" width="18rem">
+      <table:template>
+        <Text text="{prLocal>FixedVendorName}" tooltip="{prLocal>FixedVendorName}"/>
+      </table:template>
+    </table:Column>
+
+    <table:Column sortProperty="PurchasingGrp" label="Purch. Group" width="8rem">
+      <table:template><Text text="{prLocal>PurchasingGrp}" tooltip="{prLocal>PurchasingGrp}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="MrpController" label="MRP Ctrl" width="7rem">
+      <table:template><Text text="{prLocal>MrpController}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="PlantCode" label="Plant" width="6rem">
+      <table:template><Text text="{prLocal>PlantCode}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="PurchasingOrg" label="Purch. Org" width="7rem">
+      <table:template><Text text="{prLocal>PurchasingOrg}"/></table:template>
+    </table:Column>
+    
+    <table:Column sortProperty="OrderQuantity" label="Order Qty" width="8rem" hAlign="End">
+      <table:template><Text text="{prLocal>OrderQuantity}"/></table:template>
+    </table:Column>
+    
+    <table:Column sortProperty="UnitOfMeasure" label="UoM" width="6rem">
+      <table:template><Text text="{prLocal>UnitOfMeasure}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="Currency" label="Currency" width="6rem">
+      <table:template>
+        <Text text="{prLocal>Currency}" tooltip="{prLocal>Currency}"/>
+      </table:template>
+    </table:Column>
+
+    <table:Column sortProperty="Valuation_Price" label="Valuation Price" width="10rem" hAlign="End">
+      <table:template>
+        <Text text="{prLocal>Valuation_Price}" tooltip="{prLocal>Valuation_Price}"/>
+      </table:template>
+    </table:Column>
+    
+    <table:Column sortProperty="DocumentStatus" label="Doc Status" width="7rem">
+      <table:template><Text text="{prLocal>DocumentStatus}" tooltip="{prLocal>DocumentStatus}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="DeliveryDate" label="Delivery Date" width="10rem">
+      <table:template>
+        <Text text="{ path: 'prLocal>DeliveryDate', formatter: '.formatter.yyyymmddToDate' }"/>
+      </table:template>
+    </table:Column>
+
+    <table:Column sortProperty="ReleaseDate" label="Release Date" width="10rem">
+      <table:template>
+        <Text text="{ path: 'prLocal>ReleaseDate', formatter: '.formatter.yyyymmddToDate' }"/>
+      </table:template>
+    </table:Column>
+    
+    <table:Column sortProperty="DocumentDate" label="Doc Date" width="10rem">
+      <table:template>
+        <Text text="{ path: 'prLocal>DocumentDate', formatter: '.formatter.yyyymmddToDate' }"/>
+      </table:template>
+    </table:Column>
+    
+    <table:Column sortProperty="DocumentType" label="Doc Type" width="7rem">
+      <table:template><Text text="{prLocal>DocumentType}" tooltip="{prLocal>DocumentType}"/></table:template>
+    </table:Column>
+    
+    <table:Column sortProperty="CreatedByUser" label="Created By" width="9rem">
+      <table:template><Text text="{prLocal>CreatedByUser}" tooltip="{prLocal>CreatedByUser}"/></table:template>
+    </table:Column>
+    
+    <table:Column sortProperty="RequestorUser" label="Requestor" width="9rem">
+      <table:template><Text text="{prLocal>RequestorUser}" tooltip="{prLocal>RequestorUser}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="EmailAddress" label="Email" width="18rem">
+      <table:template>
+        <Text text="{prLocal>EmailAddress}" wrapping="false" tooltip="{prLocal>EmailAddress}"/>
+      </table:template>
+    </table:Column>
+
+    <table:Column sortProperty="InfoRecordNo" label="Info Rec" width="10rem">
+      <table:template><Text text="{prLocal>InfoRecordNo}" tooltip="{prLocal>InfoRecordNo}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="AcctAssignCat" label="Acct Assg" width="8rem">
+      <table:template><Text text="{prLocal>AcctAssignCat}" tooltip="{prLocal>AcctAssignCat}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="ItemCategory" label="Item Cat" width="7rem">
+      <table:template><Text text="{prLocal>ItemCategory}" tooltip="{prLocal>ItemCategory}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="EstkzIndicator" label="PR Creation Indicator" width="6rem">
+      <table:template><Text text="{prLocal>EstkzIndicator}" tooltip="{prLocal>EstkzIndicator}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="ContractNo" label="Contract" width="10rem">
+      <table:template><Text text="{prLocal>ContractNo}" tooltip="{prLocal>ContractNo}"/></table:template>
+    </table:Column>
+
+    <table:Column sortProperty="ContractItemno" label="Ctr Item" width="7rem">
+      <table:template><Text text="{prLocal>ContractItemno}" tooltip="{prLocal>ContractItemno}"/></table:template>
+    </table:Column>
+
+    <table:noData>
+      <VBox
+        alignItems="Center"
+        justifyContent="Center"
+        height="100%">
+        <Text
+          text="{= ${ui>/busy} ? 'Loading data...' : 'No PRs found' }"
+          textAlign="Center"/>
+      </VBox>
+    </table:noData>
+
+  </table:Table>
+
+  <VBox class="bbPagerBar" visible="{= ${ui>/pageSize} !== 'ALL' }">
+    <Toolbar design="Transparent" class="bbPagerToolbar">
+      <Button
+        icon="sap-icon://media-rewind"
+        tooltip="First Page"
+        press="onFirstPage"
+        enabled="{= ${ui>/pageIndex} &gt; 0 }"/>
+
+      <Button
+        icon="sap-icon://navigation-left-arrow"
+        tooltip="Previous Page"
+        press="onPrevPage"
+        enabled="{= ${ui>/pageIndex} &gt; 0 }"/>
+
+      <ToolbarSpacer/>
+
+      <Text text="{= 'Page ' + (${ui>/pageIndex} + 1) + ' of ' + ${ui>/pageCount} }"/>
+
+      <ToolbarSpacer/>
+
+      <Button
+        icon="sap-icon://navigation-right-arrow"
+        tooltip="Next Page"
+        press="onNextPage"
+        enabled="{= (${ui>/pageIndex} + 1) &lt; ${ui>/pageCount} }"/>
+
+      <Button
+        icon="sap-icon://media-forward"
+        tooltip="Last Page"
+        press="onLastPage"
+        enabled="{= (${ui>/pageIndex} + 1) &lt; ${ui>/pageCount} }"/>
+    </Toolbar>
+  </VBox>
+
+</core:FragmentDefinition>

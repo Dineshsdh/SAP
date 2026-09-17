@@ -1,0 +1,161 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+        "id": "prposervicios",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.20.0",
+            "toolsId": "c90808b8-20d0-4622-b663-0109d91e5fd1"
+        },
+        "dataSources": {
+            "capService": {
+                "type": "OData",
+                "uri": "odata/v4/catalog/",
+                "settings": {
+                    "destination": "cap_pr_po",
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "display": {
+                    "semanticObject": "prautomationNew",
+                    "action": "display",
+                    "title": "{{appTitle}}",
+                    "subTitle": "",
+                    "signature": {
+                        "parameters": {
+                            "kpiType": {
+                                "required": false
+                            }
+                        },
+                        "additionalParameters": "allowed"
+                    },
+                    "indicatorDataSource": {
+                        "dataSource": "capService",
+                        "path": "kpiPrOpenCount()",
+                        "refresh": 600
+                    }
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "sap-icon://activities",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.120.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ui.table": {},
+                "sap.ui.comp": {},
+                "sap.ui.fl": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "": {
+                "type": "sap.ui.model.odata.v4.ODataModel",
+                "dataSource": "capService",
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "capService": {
+                "type": "sap.ui.model.odata.v4.ODataModel",
+                "dataSource": "capService",
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "prposervicios.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "prposervicios.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteMain",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetMain"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetMain": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Main",
+                    "viewName": "Main"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "prposervicios.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        },
+        "componentName": "prposervicios",
+        "flexBundle": false
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "prposervicios"
+    }
+}

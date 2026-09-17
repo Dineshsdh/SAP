@@ -1,0 +1,65 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:fb="sap.ui.comp.filterbar"
+  xmlns:vm="sap.ui.comp.variants">
+
+  <VBox width="100%">
+  <Toolbar design="Transparent">
+    <vm:VariantManagement
+      id="prVariantMgmt"
+      select=".onPRVariantSelect"
+      save=".onPRVariantSave"
+      manage=".onPRVariantManage"/>
+    <ToolbarSpacer/>
+  </Toolbar>
+
+  <fb:FilterBar
+    id="prFilterBar"
+    useToolbar="false"
+    showGoOnFB="false"
+    search=".onPRSearch"
+    filterChange=".onPRFilterChange">
+
+    <fb:filterGroupItems>
+
+      <fb:FilterGroupItem
+        groupName="Group1"
+        name="SimStatus"
+        label="Simulation Status"
+        visibleInFilterBar="true">
+
+        <fb:control>
+          <Select
+            width="12rem"
+            selectedKey="{ui>/simStatusFilter}"
+            change=".onSimStatusChange">
+            <core:Item key="ALL" text="All"/>
+            <core:Item key="SUCCESS" text="Success"/>
+            <core:Item key="ERROR" text="Error"/>
+          </Select>
+        </fb:control>
+      </fb:FilterGroupItem>
+
+      <fb:FilterGroupItem
+        groupName="Group1"
+        name="PRStatus"
+        label="PR Status"
+        visibleInFilterBar="true">
+
+        <fb:control>
+          <Select
+            width="10rem"
+            selectedKey="{ui>/prStatusFilter}"
+            change=".onPRStatusChange">
+            <core:Item key="ALL" text="All"/>
+            <core:Item key="OPEN" text="Open"/>
+            <core:Item key="DELETED" text="Deleted"/>
+          </Select>
+        </fb:control>
+      </fb:FilterGroupItem>
+    </fb:filterGroupItems>
+
+  </fb:FilterBar>
+  </VBox>
+</core:FragmentDefinition>

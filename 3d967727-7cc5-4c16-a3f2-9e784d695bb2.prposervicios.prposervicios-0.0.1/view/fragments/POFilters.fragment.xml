@@ -1,0 +1,44 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:fb="sap.ui.comp.filterbar"
+  xmlns:vm="sap.ui.comp.variants">
+
+  <VBox width="100%">
+    <Toolbar design="Transparent">
+      <vm:VariantManagement
+        id="poVariantMgmt"
+        select=".onPOVariantSelect"
+        save=".onPOVariantSave"
+        manage=".onPOVariantManage"/>
+      <ToolbarSpacer/>
+    </Toolbar>
+
+    <fb:FilterBar
+      id="poFilterBar"
+      persistencyKey="poFilterBar"
+      useToolbar="false"
+      showGoOnFB="false"
+      search=".onPOSearch"
+      filterChange=".onPOFilterChange"
+      afterVariantLoad=".onPOAfterVariantLoad">
+
+      <fb:filterGroupItems>
+        <fb:FilterGroupItem
+          name="CreatedNo"
+          label="Created On"
+          groupName="Group1"
+          visibleInFilterBar="true">
+          <fb:control>
+            <DateRangeSelection
+              id="poCreatedOn"
+              width="18rem"
+              placeholder="From - To"
+              delimiter=" - "
+              change=".onPOCreatedOnChange" />
+          </fb:control>
+        </fb:FilterGroupItem>
+      </fb:filterGroupItems>
+    </fb:FilterBar>
+  </VBox>
+</core:FragmentDefinition>

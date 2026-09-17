@@ -1,0 +1,68 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:f="sap.ui.layout.form">
+
+  <Dialog
+    id="editPRDialog"
+    title="Edit Purchase Requisition"
+    draggable="true"
+    resizable="true"
+    contentWidth="46rem"
+    class="sapUiResponsivePadding--content"
+    stretchOnPhone="true">
+
+    <content>
+      <f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+
+        <Label text="Purchase Requisition"/>
+        <Input value="{edit>/PurReqNumber}" editable="false"/>
+
+        <Label text="Item"/>
+        <Input value="{edit>/PurReqItemNo}" editable="false"/>
+
+        <Label text="Material"/>
+        <Input id="inpMaterialNo" value="{edit>/MaterialNo}" editable="false"/>
+
+        <!-- NEW: editable item description -->
+        <Label text="PR Item Description"/>
+        <Input id="inpPRItemDesc" value="{edit>/PRItemDesc}" />
+
+        <Label text="Fixed Vendor"/>
+        <Input
+          id="inpFixedVendor"
+          value="{edit>/FixedVendor}"
+          showValueHelp="true"
+          valueHelpRequest=".onFixedVendorValueHelp"
+          placeholder="Select vendor" />
+
+        <Label text="Agreement"/>
+        <Input value="{edit>/Agreement}" editable="false"/>
+
+        <Label text="Agreement Line"/>
+        <Input value="{edit>/AgreementLine}" editable="false"/>
+
+        <Label text="Quantity"/>
+        <Input id="inpOrderQty" value="{edit>/OrderQuantity}"/>
+
+        <Label text="Delivery Date"/>
+        <DatePicker
+          id="dpDeliveryDate"
+          value="{edit>/DeliveryDate}"
+          valueFormat="yyyyMMdd"
+          displayFormat="yyyy-MM-dd"
+          placeholder="yyyy-MM-dd" />
+
+      </f:SimpleForm>
+    </content>
+
+    <beginButton>
+      <Button text="Save" type="Emphasized" press=".onSaveEditPR"/>
+    </beginButton>
+
+    <endButton>
+      <Button text="Cancel" press=".onCancelEditPR"/>
+    </endButton>
+
+  </Dialog>
+</core:FragmentDefinition>

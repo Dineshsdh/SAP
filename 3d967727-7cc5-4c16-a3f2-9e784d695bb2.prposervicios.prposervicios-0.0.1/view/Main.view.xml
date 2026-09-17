@@ -1,0 +1,44 @@
+<mvc:View controllerName="prposervicios.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    height="100%">
+
+    <Page id="titlePRMon" title="PR Monitor" showNavButton="false" busy="{ui>/busy}" busyIndicatorDelay="0" busyIndicatorSize="Large">  
+        <content>
+            <IconTabBar id="tabBar" expandable="false" class="sapUiResponsiveContentPadding" select="onTabSelect">
+                <items>
+
+                    <IconTabFilter id="iconTabFilter" key="PR" text="PRs" icon="sap-icon://request">
+                        <content>
+                            <VBox class="bbSection">
+
+                                <core:Fragment fragmentName="prposervicios.view.fragments.PRFilters" type="XML" />
+
+                                <VBox class="bbCard" busy="{ui>/busySim}" busyIndicatorDelay="0">
+                                    <core:Fragment fragmentName="prposervicios.view.fragments.PRTable" type="XML" />    
+                                </VBox>
+                                
+                            </VBox>
+                        </content>
+                    </IconTabFilter>
+
+                    <IconTabFilter id="iconPO" key="PO" text="POs" icon="sap-icon://cart">
+                        <content>
+                            <VBox class="bbSection">
+
+                            <core:Fragment fragmentName="prposervicios.view.fragments.POFilters" type="XML" />
+
+                            <VBox class="bbCard">
+                                <core:Fragment fragmentName="prposervicios.view.fragments.POTable" type="XML" />
+                            </VBox>
+
+                            </VBox>
+                        </content>
+                    </IconTabFilter>
+
+                </items>
+            </IconTabBar>
+        </content>
+    </Page>
+</mvc:View>

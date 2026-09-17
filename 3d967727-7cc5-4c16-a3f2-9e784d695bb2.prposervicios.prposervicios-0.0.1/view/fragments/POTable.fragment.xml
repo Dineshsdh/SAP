@@ -1,0 +1,189 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:table="sap.ui.table">
+
+  <table:Table
+    id="poTable"
+    rows="{poLocal>/rows}"
+    width="100%"
+    enableSelectAll="false"
+    selectionMode="MultiToggle"
+    enableColumnReordering="true"
+    visibleRowCount="{ui>/poVisibleRowCount}"
+    visibleRowCountMode="Fixed"
+    rowSelectionChange=".onPOTableSelectionChange">
+
+    <table:extension>
+      <OverflowToolbar class="bbToolbar" design="Transparent">
+        <ToolbarSpacer/>
+
+        <Button
+          icon="sap-icon://excel-attachment"
+          text="Export"
+          press="onExportPOsToExcel"/>
+        
+        <Button
+          icon="sap-icon://email"
+          text="Send Email"
+          press=".onSendEmailPO"/>
+
+        <Label text="Rows:"/>
+        <Select selectedKey="{ui>/poPageSize}" change="onPOPageSizeChange" width="6rem">
+          <core:Item key="10" text="10"/>
+          <core:Item key="30" text="30"/>
+          <core:Item key="50" text="50"/>
+          <core:Item key="ALL" text="All"/>
+        </Select>
+        <Button icon="sap-icon://refresh" tooltip="Refresh" press="onRefreshPO"/>
+      </OverflowToolbar>
+    </table:extension>
+
+    <table:Column label="PO" sortProperty="PONumber" width="9rem">
+      <table:template><Text text="{poLocal>PONumber}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Line" sortProperty="LineNumber" width="5rem">
+      <table:template><Text text="{poLocal>LineNumber}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Material" sortProperty="POMaterial" width="8rem">
+      <table:template><Text text="{poLocal>POMaterial}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Material Text" sortProperty="MaterialPOText" width="18rem">
+      <table:template>
+        <HBox fitContainer="true" renderType="Bare" justifyContent="SpaceBetween" alignItems="Center">
+          <Text
+            text="{path:'poLocal>MaterialPOText', formatter: '.formatter.truncate80'}"
+            wrapping="false"
+            width="100%"/>
+          <Link
+            text="More"
+            press=".onShowPOText"
+            width="4rem"
+            visible="{path:'poLocal>MaterialPOText', formatter: '.formatter.hasMoreThan80'}">
+            <customData>
+              <core:CustomData key="title" value="Material Text" writeToDom="false"/>
+              <core:CustomData key="prop"  value="MaterialPOText" writeToDom="false"/>
+            </customData>
+          </Link>
+        </HBox>
+      </table:template>
+    </table:Column>
+
+    <table:Column label="Purch. Org" sortProperty="PurchaseOrg" width="7rem">
+      <table:template><Text text="{poLocal>PurchaseOrg}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Order Type" sortProperty="OrderType" width="7rem">
+      <table:template><Text text="{poLocal>OrderType}"/></table:template>
+    </table:Column>
+
+    <table:Column label="PO Qty" sortProperty="POQty" width="8rem" hAlign="End">
+      <table:template><Text text="{poLocal>POQty}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Plant" sortProperty="Plant" width="6rem">
+      <table:template><Text text="{poLocal>Plant}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Created By" sortProperty="CreatedBy" width="9rem">
+      <table:template><Text text="{poLocal>CreatedBy}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Created On" sortProperty="CreatedNo" width="9rem">
+      <table:template><Text text="{path:'poLocal>CreatedNo', formatter: '.formatter.yyyymmddToDate'}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Vendor" sortProperty="Vendor" width="8rem">
+      <table:template><Text text="{poLocal>Vendor}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Vendor Name" sortProperty="VendorName" width="14rem">
+      <table:template><Text text="{poLocal>VendorName}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Delivery Text" sortProperty="DeliveryText" width="22rem">
+      <table:template>
+        <HBox fitContainer="true" renderType="Bare"
+              justifyContent="SpaceBetween"
+              alignItems="Center">
+
+          <Text
+            text="{path:'poLocal>DeliveryText', formatter: '.formatter.truncate80'}"
+            wrapping="false"
+            width="100%"/>
+
+          <Link
+            text="More"
+            press=".onShowPOText"
+            width="4rem"
+            visible="{path:'poLocal>DeliveryText', formatter: '.formatter.hasMoreThan80'}">
+
+            <customData>
+              <core:CustomData key="title" value="Delivery Text" writeToDom="false"/>
+              <core:CustomData key="prop"  value="DeliveryText" writeToDom="false"/>
+            </customData>
+
+          </Link>
+
+        </HBox>
+      </table:template>
+    </table:Column>
+
+    <table:Column label="PR" sortProperty="PurReqNumber" width="11rem">
+      <table:template><Text text="{poLocal>PurReqNumber}"/></table:template>
+    </table:Column>
+
+    <table:Column label="PR Item" sortProperty="PurReqItemNo" width="6rem">
+      <table:template><Text text="{poLocal>PurReqItemNo}"/></table:template>
+    </table:Column>
+
+    <table:Column label="PR Qty" sortProperty="PRQty" width="8rem" hAlign="End">
+      <table:template><Text text="{poLocal>PRQty}"/></table:template>
+    </table:Column>
+
+    <table:Column label="PR Ordered" sortProperty="PROrderedQty" width="9rem" hAlign="End">
+      <table:template><Text text="{poLocal>PROrderedQty}"/></table:template>
+    </table:Column>
+
+    <table:Column label="PR Balance" sortProperty="PRBalanceQty" width="9rem" hAlign="End">
+      <table:template><Text text="{poLocal>PRBalanceQty}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Delv Comp" sortProperty="DelvCompInd" width="7rem" hAlign="Center">
+      <table:template><Text text="{poLocal>DelvCompInd}"/></table:template>
+    </table:Column>
+
+    <table:Column label="Scheduled" sortProperty="ScheduledQty" width="9rem" hAlign="End">
+      <table:template><Text text="{poLocal>ScheduledQty}"/></table:template>
+    </table:Column>
+
+    <table:Column label="GRN Qty" sortProperty="GRNQty" width="8rem" hAlign="End">
+      <table:template><Text text="{poLocal>GRNQty}"/></table:template>
+    </table:Column>
+
+    <table:Column label="GRN Status" sortProperty="GRNStatus" width="8rem">
+      <table:template><Text text="{poLocal>GRNStatus}"/></table:template>
+    </table:Column>
+
+    <table:Column label="PO Del. Date" sortProperty="PODelDate" width="9rem">
+      <table:template>
+        <Text text="{path:'poLocal>PODelDate', formatter: '.formatter.yyyymmddToDate'}"/>
+      </table:template>
+    </table:Column>
+
+    <table:Column label="GRN Date" sortProperty="GRNDate" width="9rem">
+      <table:template>
+        <Text text="{path:'poLocal>GRNDate', formatter: '.formatter.yyyymmddToDate'}"/>
+      </table:template>
+    </table:Column>
+
+    <table:Column label="PO Output Status" sortProperty="POVendorConfStatus" width="10rem">
+      <table:template><Text text="{poLocal>POVendorConfStatus}"/></table:template>
+    </table:Column>
+
+  </table:Table>
+
+</core:FragmentDefinition>

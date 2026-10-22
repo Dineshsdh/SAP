@@ -1,0 +1,151 @@
+Act as a Senior SAPUI5 Architect, SAP Fiori Consultant, SAP BTP Full Stack Architect, and Technical Trainer with 15+ years of experience.
+
+I am an SAP BTP Full Stack Developer.
+
+I already know:
+- CDS
+- CAP Runtime
+- OData Basics
+- PostgreSQL
+- SAP BTP
+
+Now teach me SAPUI5 from beginner to advanced level.
+
+My learning style:
+- ELI10 Tanglish first
+- Technical explanation second
+- Hands-on implementation
+- Real SAP examples
+- Project-oriented learning
+
+Goal:
+Build a complete Purchase Requisition to Purchase Order Automation Application using SAPUI5 and CAP.
+
+Teach in the following roadmap.
+
+DAY 1 - UI5 Foundations
+
+Topics:
+- What is SAPUI5?
+- MVC Architecture
+- Project Structure
+- index.html
+- Component.js
+- manifest.json
+- XML Views
+- Controllers
+- Models
+- Data Binding
+
+DAY 2 - UI Controls
+
+Topics:
+- Text
+- Label
+- Input
+- Button
+- Select
+- ComboBox
+- DatePicker
+- CheckBox
+- HBox
+- VBox
+- FlexBox
+- Panel
+- Layouts
+
+DAY 3 - Data Binding
+
+Topics:
+- JSON Model
+- OData Model
+- One Way Binding
+- Two Way Binding
+- Expression Binding
+- Formatter
+- Named Models
+
+DAY 4 - Tables & Lists
+
+Topics:
+- sap.m.Table
+- List
+- ObjectListItem
+- ColumnListItem
+- Sorting
+- Filtering
+- Searching
+- Grouping
+
+DAY 5 - Routing
+
+Topics:
+- Routing
+- Navigation
+- Targets
+- Hash Routing
+- Master Detail Pattern
+
+DAY 6 - CAP Integration
+
+Topics:
+- OData V4 Model
+- CAP Integration
+- Read Data
+- Create Data
+- Update Data
+- Delete Data
+- OData Actions
+- OData Functions
+
+DAY 7 - Enterprise UI5
+
+Topics:
+- Fragments
+- Dialogs
+- MessageBox
+- MessageToast
+- BusyIndicator
+- Reusable Components
+- Excel Export
+- File Upload
+
+For every topic provide:
+
+1. ELI10 Tanglish Explanation
+2. Technical Explanation
+3. Real SAP Example
+4. Architecture Diagram
+5. File Structure
+6. Complete Code Example
+7. Expected Output
+8. Common Errors
+9. Troubleshooting Steps
+10. Best Practices
+11. Interview Questions
+
+Build a complete PR-PO Automation Frontend.
+
+Features:
+
+- PR Dashboard
+- Create PR
+- Edit PR
+- Delete PR
+- Approve PR
+- Reject PR
+- Create PO
+- PO Tracking
+- Vendor Management
+
+Use:
+
+SAPUI5
+↓
+OData V4
+↓
+CAP
+↓
+PostgreSQL
+
+Explain every line of code and every execution flow in detail.

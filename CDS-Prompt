@@ -1,0 +1,274 @@
+DAY-1
+
+Act as a Senior SAP CAP Architect, SAP CDS Expert, SAP BTP Consultant, and Technical Trainer with 15+ years of SAP experience.
+
+I am an SAP BTP Full Stack Developer learning SAP CAP, CDS, OData, PostgreSQL, SAPUI5, and SAP BTP.
+
+Teach me SAP CDS Day 1 from absolute beginner level using ELI10 (Explain Like I'm 10) Tanglish first, then technical explanation.
+
+My learning style:
+- Hands-on implementation
+- Real SAP examples
+- PR-PO automation examples
+- SAP ECC/S4HANA mappings
+- Project-oriented learning
+
+DAY 1 TOPICS:
+
+1. What is CDS?
+2. Why CDS is used in SAP CAP?
+3. CAP Architecture
+4. CDS File Structure
+5. Namespace
+6. Entity
+7. Key
+8. Data Types
+9. Common Types
+10. Managed Aspect
+11. cuid
+12. Association
+13. Composition
+14. Association vs Composition
+15. Service Definition
+16. OData Generation
+17. Metadata Generation
+18. CSV Data Loading
+19. CAP Commands
+20. CRUD Basics
+
+Explain every topic in the following format:
+
+1. ELI10 Tanglish Explanation
+2. Technical Explanation
+3. SAP ECC/S4 Example
+4. Real Project Example
+5. Database Mapping
+6. Code Example
+7. Expected Output
+8. Common Mistakes
+9. Best Practices
+10. Interview Questions
+
+Create a complete Purchase Requisition Management Mini Project.
+
+Entities:
+- Vendor
+- PurchaseRequisition
+- PurchaseItem
+
+Demonstrate:
+- One-to-Many
+- Composition
+- Association
+
+Generate:
+- Complete schema.cds
+- Complete service.cds
+- CSV files
+- Project structure
+- OData URLs
+- Metadata examples
+- Testing examples
+
+Explain every line of code in detail.
+
+Do not skip any concept.
+Teach as if I must become job-ready in one day.
+
+
+DAY-2
+
+Act as a Senior SAP CAP Architect and SAP CDS Specialist.
+
+Continue from Day 1 and teach SAP CDS Day 2.
+
+Assume I already understand:
+- Entities
+- Associations
+- Compositions
+- Services
+- OData
+- Metadata
+
+Now teach Advanced CDS and CAP Business Logic using ELI10 Tanglish first and then technical explanation.
+
+DAY 2 TOPICS:
+
+1. Projections
+2. Views
+3. Reuse Aspects
+4. Managed Data
+5. Custom Types
+6. Enumerations
+7. Virtual Fields
+8. Calculated Fields
+9. Actions
+10. Functions
+11. Event Handlers
+12. Before Events
+13. On Events
+14. After Events
+15. CAP Query Language
+16. CRUD Operations
+17. Business Logic Implementation
+18. Data Validation
+19. Service Layer Logic
+20. PostgreSQL Integration Concepts
+
+For every topic provide:
+
+1. ELI10 Tanglish
+2. Technical Explanation
+3. Real SAP Example
+4. Project Example
+5. Code Example
+6. Best Practices
+7. Common Mistakes
+8. Interview Questions
+
+Create a complete PR-PO Automation Backend.
+
+Entities:
+- Vendors
+- PRData
+- POData
+- AuditLogs
+
+Demonstrate:
+- Actions
+- Functions
+- CRUD
+- Event Handlers
+- Status Management
+
+Generate:
+
+- schema.cds
+- service.cds
+- service.js
+- Sample Data
+- OData Calls
+- Action Calls
+- Function Calls
+
+Implement:
+
+approvePR()
+rejectPR()
+createPO()
+getOpenPRCount()
+
+Explain execution flow:
+
+UI5
+↓
+OData
+↓
+CAP Service
+↓
+Event Handler
+↓
+CDS
+↓
+PostgreSQL
+
+Explain every line of code.
+
+
+DAY-3
+
+Act as a Principal SAP CAP Architect and Enterprise SAP Consultant.
+
+Teach me Enterprise-Level CDS used in real SAP projects.
+
+Assume I have completed Day 1 and Day 2.
+
+Teach using ELI10 Tanglish first and then technical explanations.
+
+DAY 3 TOPICS:
+
+1. CDS Annotations
+2. UI Annotations
+3. Validation Annotations
+4. CDS Views
+5. Joins
+6. Aggregations
+7. Group By
+8. Search Annotations
+9. Localization
+10. Draft Enablement
+11. Authorization
+12. Security Annotations
+13. Aspect-Oriented Modeling
+14. Deep Insert
+15. Deep Expand
+16. Computed Fields
+17. Enterprise Modeling Patterns
+18. Performance Optimization
+19. Audit Design
+20. Multi-Tenancy Concepts
+
+Cover:
+
+@title
+@description
+@mandatory
+@readonly
+@assert.range
+@requires
+@restrict
+
+UI Annotations:
+
+@UI.HeaderInfo
+@UI.LineItem
+@UI.SelectionField
+@UI.FieldGroup
+
+Explain:
+
+1. Why enterprise projects use these
+2. Real SAP S/4HANA examples
+3. Real CAP examples
+4. Complete code examples
+5. Best practices
+6. Performance considerations
+7. Interview questions
+
+Create an Enterprise Vendor Management System.
+
+Entities:
+
+- Vendor
+- VendorContact
+- VendorBank
+- VendorAddress
+- VendorContract
+
+Implement:
+
+- Views
+- Joins
+- Aggregations
+- Draft Support
+- Search
+- Security
+- Validation
+- Annotations
+
+Generate complete:
+- schema.cds
+- service.cds
+- service.js
+- Security configuration
+- OData examples
+- UI annotation examples
+
+Explain how Fiori Elements automatically generates screens from CDS annotations.
+
+At the end generate:
+- CDS Cheat Sheet
+- Annotations Cheat Sheet
+- Enterprise Modeling Cheat Sheet
+- Interview Questions (50)
+- Scenario-Based Questions (20)

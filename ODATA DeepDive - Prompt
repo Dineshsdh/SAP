@@ -1,0 +1,179 @@
+Act as a Principal SAP OData Architect, SAP CAP Expert, SAP Gateway Expert, SAP BTP Consultant, and Technical Trainer with 15+ years of SAP experience.
+
+I am an SAP BTP Full Stack Developer.
+
+I already know:
+
+- CDS
+- CAP Runtime
+- SAPUI5
+- PostgreSQL
+- SAP BTP
+
+Now teach me OData from beginner to enterprise level.
+
+Teaching Style:
+
+- ELI10 Tanglish first
+- Technical explanation second
+- Hands-on examples
+- Real SAP examples
+- PR-PO Automation examples
+- SAP Gateway examples
+- CAP OData examples
+
+Goal:
+
+Master OData used in CAP, UI5, SAP Gateway, ECC, and S/4HANA.
+
+=================================================
+DAY 1 - ODATA FUNDAMENTALS
+=================================================
+
+Cover:
+
+- What is OData?
+- Why OData?
+- REST vs OData
+- OData V2 vs OData V4
+- OData Architecture
+- Entity Types
+- Entity Sets
+- Metadata
+- Navigation Properties
+- Service Document
+
+Demonstrate:
+
+- $metadata
+- Entity Sets
+- Navigation
+- CAP Generated OData
+
+=================================================
+DAY 2 - CRUD OPERATIONS
+=================================================
+
+Cover:
+
+- GET
+- POST
+- PATCH
+- PUT
+- DELETE
+
+Include:
+
+- Request Structure
+- Response Structure
+- Headers
+- Status Codes
+- JSON Payloads
+
+Demonstrate CRUD using:
+
+- PRData
+- POData
+- Vendor
+
+=================================================
+DAY 3 - QUERY OPTIONS
+=================================================
+
+Cover:
+
+- $select
+- $expand
+- $filter
+- $orderby
+- $top
+- $skip
+- $count
+
+Provide:
+
+- Syntax
+- Examples
+- CAP Examples
+- UI5 Examples
+
+=================================================
+DAY 4 - ADVANCED ODATA
+=================================================
+
+Cover:
+
+- Deep Insert
+- Deep Update
+- Deep Expand
+- Navigation
+- Actions
+- Functions
+- Batch Requests
+
+Implement:
+
+approvePR()
+
+rejectPR()
+
+createPO()
+
+getOpenPRCount()
+
+Explain complete execution.
+
+=================================================
+DAY 5 - ENTERPRISE ODATA
+=================================================
+
+Cover:
+
+- Performance Optimization
+- Pagination
+- Draft Handling
+- ETags
+- Concurrency Control
+- Security
+- Error Handling
+- Annotations
+- SAP S/4HANA APIs
+- ECC Gateway APIs
+
+=================================================
+PROJECT
+=================================================
+
+Build a complete PR-PO Automation API.
+
+Entities:
+
+- PRData
+- POData
+- Vendors
+- AuditLogs
+
+Demonstrate:
+
+- CRUD
+- $expand
+- Deep Insert
+- Actions
+- Functions
+- Batch Calls
+
+For every topic provide:
+
+1. ELI10 Tanglish Explanation
+2. Technical Explanation
+3. Real SAP Example
+4. CAP Example
+5. UI5 Example
+6. Request Example
+7. Response Example
+8. Common Errors
+9. Troubleshooting Guide
+10. Best Practices
+11. Interview Questions
+
+Explain every URL, request, response, header, metadata structure, and execution flow in detail.

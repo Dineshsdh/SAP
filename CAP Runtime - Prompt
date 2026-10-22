@@ -1,0 +1,118 @@
+Act as a Principal SAP CAP Architect, SAP BTP Consultant, and Technical Trainer with 15+ years of SAP experience.
+
+I am an SAP BTP Full Stack Developer.
+
+I have completed:
+- CDS Foundations
+- Advanced CDS
+- Enterprise CDS
+
+Now teach me SAP CAP Runtime from beginner to enterprise level.
+
+Teaching Style:
+- ELI10 Tanglish first
+- Technical explanation second
+- Real SAP examples
+- Hands-on implementation
+- Enterprise project examples
+- PR-PO Automation examples
+
+Cover the following topics in detail:
+
+DAY 1:
+- CAP Architecture
+- schema.cds
+- service.cds
+- service.js
+- Request Lifecycle
+- Event Handlers
+- before()
+- on()
+- after()
+- CRUD Operations
+- CAP Query Language
+
+DAY 2:
+- Actions
+- Functions
+- Validations
+- Custom Logic
+- Error Handling
+- Message Handling
+
+DAY 3:
+- Deep Insert
+- Deep Update
+- Deep Expand
+- Transactions
+- Nested Data
+- Composition Operations
+
+DAY 4:
+- External Service Consumption
+- ECC OData Integration
+- S4HANA Integration
+- REST Integration
+- Destination Service
+
+DAY 5:
+- Authentication
+- Authorization
+- XSUAA
+- @requires
+- @restrict
+- Role Based Access
+
+DAY 6:
+- PostgreSQL Integration
+- Persistence
+- Relationships
+- Migrations
+- Performance Optimization
+
+DAY 7:
+- Enterprise CAP Development
+- Logging
+- Monitoring
+- Audit Logs
+- Error Management
+- Testing
+- Deployment
+
+For every topic provide:
+
+1. ELI10 Tanglish Explanation
+2. Technical Explanation
+3. Real SAP Example
+4. PR-PO Project Example
+5. Architecture Diagram
+6. Folder Structure
+7. Complete Code Example
+8. Execution Flow
+9. Expected Output
+10. Common Errors
+11. Troubleshooting Guide
+12. Best Practices
+13. Interview Questions
+
+Build a complete Purchase Requisition to Purchase Order Automation Backend using:
+
+- SAP CAP
+- CDS
+- PostgreSQL
+- OData V4
+
+Implement:
+
+- Create PR
+- Update PR
+- Delete PR
+- Approve PR
+- Reject PR
+- Create PO
+- Track Status
+- Audit Logs
+- Security
+- External ECC Integration
+
+Explain every line of code and every runtime execution step in detail.

@@ -1,0 +1,96 @@
+_schema-version: 3.3.0
+ID: soautomation-cap
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+        - ./scripts/soautomationbuild.sh
+
+modules:
+  - name: soautomation-cap-srv
+    properties:
+      DEBUG: all
+      INCOMING_CONNECTION_TIMEOUT: 0  
+      SHAREPOINT_DRIVE_ID: b!wME_OLh8hE-4EGqAXBajDdY8nUsKk0NDlfWWve70vkVNwjuSLJi-R5yjOri7SYA0
+      SHAREPOINT_FOLDER_DEV: 01I6GRHDQEKGBD6ASDV5AZS3R4SMX5HU2W
+      SHAREPOINT_FOLDER_QAS: 01I6GRHDXG5FPCJFLHGJAJU7JMZQLGNMUG
+      SHAREPOINT_FOLDER_PROD: 01I6GRHDVEU7O4ZU2JL5DYTZ6SFG6YAAQB
+      CREATE_BATCH_SIZE: 5
+      BTP_SUBDOMAIN_DEV: dev
+      BTP_SUBDOMAIN_QAS: qas
+      BTP_SUBDOMAIN_PRD: prod
+      DOX_SUBDOMAIN_DEV: development-5o2q48qs.us10.doc.cloud.sap/ui?clientId=default#/invoiceviewer
+      DOX_SUBDOMAIN_QAS: development-5o2q48qs.us10.doc.cloud.sap/ui?clientId=default#/invoiceviewer
+      DOX_SUBDOMAIN_PRD: prod-as-el9toy69.us10.doc.cloud.sap/ui?clientId=default#/invoiceviewer
+    type: nodejs
+    path: gen/srv
+    parameters:
+      instances: 3
+      memory: 4G
+      disk-quota: 2G
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: soautomation-cap-xsuaa
+      - name: soautomation-cap-postgres
+      - name: soautomation-destination-service
+      - name: soautomation-connectivity-service
+      - name: soautomation-logs
+
+  - name: soautomation-cap-postgres-deployer
+    type: nodejs
+    path: gen/pg
+    parameters:
+      buildpack: nodejs_buildpack
+      no-route: true
+      no-start: true
+      tasks:
+        - name: deploy-to-postgresql
+          command: npm start
+    requires:
+      - name: soautomation-cap-postgres
+
+resources:
+  - name: soautomation-cap-xsuaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: soautomation-cap-app
+        tenant-mode: dedicated
+
+  - name: soautomation-cap-postgres
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: postgre-instance
+
+  - name: soautomation-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+
+  - name: soautomation-connectivity-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
+
+  - name: soautomation-logs
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: application-logs
+      service-plan: lite

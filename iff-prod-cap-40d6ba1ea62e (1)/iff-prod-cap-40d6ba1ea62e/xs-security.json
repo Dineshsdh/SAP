@@ -1,0 +1,84 @@
+{
+    "xsappname": "soautomation-cap-app",
+    "tenant-mode": "dedicated",
+    "scopes": [{
+            "name": "uaa.user",
+            "description": "UAA"
+        },
+        {
+            "name": "$XSAPPNAME.FIUser",
+            "description": "Food Ingredients user"
+        },
+        {
+            "name": "$XSAPPNAME.HBUser",
+            "description": "Health and Bioscience user"
+        },
+        {
+            "name": "$XSAPPNAME.TasteUser",
+            "description": "Taste user"
+        },
+        {
+            "name": "$XSAPPNAME.ScentUser",
+            "description": "Scent user"
+        },
+        {
+            "name": "$XSAPPNAME.SuperUser",
+            "description": "Scent user"
+        },
+        {
+            "name": "$XSAPPNAME.TechnicalUser",
+            "description": "Scent user"
+        }
+    ],
+    "attributes": [],
+    "role-templates": [{
+            "name": "Token_Exchange",
+            "description": "UAA",
+            "scope-references": [
+                "uaa.user"
+            ]
+        },
+        {
+            "name": "ZSOA_Food_Ingredients_User",
+            "description": "Food Ingredients user",
+            "scope-references": [
+                "$XSAPPNAME.FIUser"
+            ]
+        },
+        {
+            "name": "ZSOA_Health_Bioscience_User",
+            "description": "Health and Bioscience user",
+            "scope-references": [
+                "$XSAPPNAME.HBUser"
+            ]
+        },
+        {
+            "name": "ZSOA_Taste_User",
+            "description": "Taste user",
+            "scope-references": [
+                "$XSAPPNAME.TasteUser"
+            ]
+        },
+        {
+            "name": "ZSOA_Scent_User",
+            "description": "Scent user",
+            "scope-references": [
+                "$XSAPPNAME.ScentUser"
+            ]
+        },
+        {
+            "name": "ZSOA_Super_User",
+            "description": "Super User",
+            "scope-references": [
+                "$XSAPPNAME.SuperUser"
+            ]
+        },
+        {
+            "name": "ZSOA_Technical_User",
+            "description": "Technical User",
+            "scope-references": [
+                "$XSAPPNAME.TechnicalUser"
+            ]
+        }
+    ]
+}

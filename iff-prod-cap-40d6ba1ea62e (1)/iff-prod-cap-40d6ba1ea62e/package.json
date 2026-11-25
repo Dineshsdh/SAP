@@ -1,0 +1,66 @@
+{
+  "name": "soautomation-cap",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "dependencies": {
+    "@cap-js/postgres": "^2",
+    "@sap-cloud-sdk/connectivity": "^4",
+    "@sap-cloud-sdk/http-client": "^4",
+    "@sap-cloud-sdk/resilience": "^4",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4",
+    "express": "^4",
+    "mime-types": "^2.1.35",
+    "passport": "latest"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "postgres",
+        "pool": {
+          "min": 0,
+          "max": 15
+        }
+      },
+      "[production]": {
+        "auth": "xsuaa"
+      },
+      "destinations": true,
+      "html5-repo": true,
+      "ZSD_SOA_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/ZSD_SOA_SRV",
+        "[production]": {
+          "credentials": {
+            "destination": "BTPSOALP",
+            "path": "/sap/opu/odata/sap/ZSD_SOA_SRV",
+            "requestTimeout": 300000
+          }
+        },
+        "csrf": true,
+        "csrfInBatch": true
+      },
+      "ZSD_SOA_SRV_R3": {
+        "kind": "odata-v2",
+        "model": "srv/external/ZSD_SOA_SRV",
+        "[production]": {
+          "credentials": {
+            "destination": "DGW",
+            "path": "/sap/opu/odata/sap/ZSD_SOA_SRV;o=R3",
+            "requestTimeout": 300000
+          }
+        },
+        "csrf": true,
+        "csrfInBatch": true
+      }
+    }
+  }
+}

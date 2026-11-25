@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZSD_SOA_SRV" xml:lang="en" sap:schema-version="1"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="HeaderStat" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PurchaseNo"/>
+                </Key>
+                <Property Name="PurchaseNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="PurchaseNo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PODate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="PODate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrg" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SalesOrg" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="OrderType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SoldTo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SoldTo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SoldToName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SoldToName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipTo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipTo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SimulateSO" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DocumentNumber"/>
+                    <PropertyRef Name="ItemNumber"/>
+                </Key>
+                <Property Name="DocumentNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DOCUMENTNUMBER" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DocumentDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DOCUMENTDATE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="OrderType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrg" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SalesOrg" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DistributionChan" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DistributionChan" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SENDERID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SHIPTOID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItemNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ITEMNUMBER" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DESCRIPTION" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CustomerMatNum" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="MATERIAL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="QUANTITY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitOfMeasure" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="UnitOfMeasure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="NETAMOUNT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitPrice" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="UNITPRICE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CURRENCYCODE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CSR" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CSR" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Nav_SimReturn" Relationship="ZSD_SOA_SRV.SimulateReturn" FromRole="FromRole_SimulateReturn" ToRole="ToRole_SimulateReturn"/>
+                <NavigationProperty Name="Nav_SimItem" Relationship="ZSD_SOA_SRV.SimulateItem" FromRole="FromRole_SimulateItem" ToRole="ToRole_SimulateItem"/>
+            </EntityType>
+            <EntityType Name="ShipTo" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ShipToId"/>
+                </Key>
+                <Property Name="ShipToId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToAddress" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToAddress" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SoldTo" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SoldToId"/>
+                </Key>
+                <Property Name="SoldToId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SoldToId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SoldToName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SoldToName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SoldToAddress" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SoldToAddress" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="DetKeyValue" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PurchaseOrder"/>
+                </Key>
+                <Property Name="PurchaseOrder" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="PurchaseOrder" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PoDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="PoDate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SoldToId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SoldToId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitOfMeasure" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="UnitOfMeasure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Nav_Keys" Relationship="ZSD_SOA_SRV.DetKey" FromRole="FromRole_DetKey" ToRole="ToRole_DetKey"/>
+            </EntityType>
+            <EntityType Name="CreateSO" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SalesOrder" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DocumentNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DocumentNumber" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DocumentDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DocumentDate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="OrderType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrg" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SalesOrg" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DistributionChan" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DistributionChan" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItemNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ItemNumber" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CustomerMatNum" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CustomerMatNum" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitOfMeasure" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="UnitOfMeasure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="NetAmount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitPrice" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="UnitPrice" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CurrencyCode" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CRS" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CRS" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Nav_Item" Relationship="ZSD_SOA_SRV.SoItem" FromRole="FromRole_SoItem" ToRole="ToRole_SoItem"/>
+                <NavigationProperty Name="Nav_Return" Relationship="ZSD_SOA_SRV.Message" FromRole="FromRole_Message" ToRole="ToRole_Message"/>
+            </EntityType>
+            <EntityType Name="LineItem" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DocumentNumber"/>
+                    <PropertyRef Name="ItemNumber"/>
+                </Key>
+                <Property Name="DocumentNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DocumentNumber" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItemNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ItemNumber" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="NetAmount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitPrice" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="UnitPrice" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DocumentDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DocumentDate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CurrencyCode" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SupplierMatNum" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SupplierMatNum" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CustomerMatNum" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CustomerMatNum" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UnitOfMeasure" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="UnitOfMeasure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItemStatus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ItemStatus" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrder" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PurchaseOrder"/>
+                </Key>
+                <Property Name="PurchaseOrder" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="PurchaseOrder" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderNum" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SalesOrder" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TaxId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="NetAmount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GrossAmount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="GrossAmount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CurrencyCode" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DocumentDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DocumentDate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DeliveryDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DeliveryDate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PaymentTerms" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="PaymentTerms" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderBankAccount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderBankAccount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderAddress" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderAddress" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToAddress" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToAddress" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxIdNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TaxIdNumber" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReceiverId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ReceiverId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShippingTerms" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShippingTerms" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderStreet" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderStreet" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderCity" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderCity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderHouseNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderHouseNumber" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderPostalCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderPostalCode" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderCountryCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderCountryCode" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderPhone" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderPhone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderFax" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderFax" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderEmail" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderEmail" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderState" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderState" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderDistrict" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderDistrict" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SenderExtAddresPart" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SenderExtAddresPart" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToStreet" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToStreet" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToCity" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToCity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToHouseNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToHouseNumber" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToPostalCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToPostalCode" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToCountryCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToCountryCode" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToPhone" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToPhone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToFax" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToFax" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToEmail" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToEmail" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToState" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToState" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToDistrict" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToDistrict" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToExtraAddressPart" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToExtraAddressPart" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShipToId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ShipToId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Internal" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Internal" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FlagIdentify" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="FlagIdentify" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HeaderStatus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="HeaderStatus" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Nav_SoldTo" Relationship="ZSD_SOA_SRV.SOSoldTo" FromRole="FromRole_SOSoldTo" ToRole="ToRole_SOSoldTo"/>
+                <NavigationProperty Name="Nav_LineItem" Relationship="ZSD_SOA_SRV.SOLineItem" FromRole="FromRole_SOLineItem" ToRole="ToRole_SOLineItem"/>
+                <NavigationProperty Name="Nav_ShipTo" Relationship="ZSD_SOA_SRV.SOShipTo" FromRole="FromRole_SOShipTo" ToRole="ToRole_SOShipTo"/>
+                <NavigationProperty Name="Nav_ItemStat" Relationship="ZSD_SOA_SRV.SOItemStat" FromRole="FromRole_SOItemStat" ToRole="ToRole_SOItemStat"/>
+                <NavigationProperty Name="Nav_HeaderStat" Relationship="ZSD_SOA_SRV.SOHeaderStat" FromRole="FromRole_SOHeaderStat" ToRole="ToRole_SOHeaderStat"/>
+            </EntityType>
+            <EntityType Name="ItemStat" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ItemNumber"/>
+                </Key>
+                <Property Name="ItemNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ItemNumber" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaterialNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="MaterialNo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="QUANTITY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UOM" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="UOM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SalesData" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrg"/>
+                    <PropertyRef Name="OrderType"/>
+                </Key>
+                <Property Name="SalesOrg" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SalesOrg" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="OrderType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CSR" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CSR" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ErrorMesg" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ErrorMesg" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ManualSec" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ManualSec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Return" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Type"/>
+                </Key>
+                <Property Name="Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Id" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Number" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Message" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SearchHelp" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerNo"/>
+                </Key>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name2" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Name 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PostalCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Postal Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StreetHouseNo" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Street" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MatchCode1" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MatchCode2" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Name 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CityCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="City code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="City" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CustomerNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Customer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="SimulateReturn" sap:content-version="1">
+                <End Type="ZSD_SOA_SRV.SimulateSO" Multiplicity="*" Role="FromRole_SimulateReturn"/>
+                <End Type="ZSD_SOA_SRV.Return" Multiplicity="*" Role="ToRole_SimulateReturn"/>
+            </Association>
+            <Association Name="SimulateItem" sap:content-version="1">
+                <End Type="ZSD_SOA_SRV.SimulateSO" Multiplicity="*" Role="FromRole_SimulateItem"/>
+                <End Type="ZSD_SOA_SRV.LineItem" Multiplicity="*" Role="ToRole_SimulateItem"/>
+            </Association>
+            <Association Name="SOItemStat" sap:content-version="1">
+                <End Type="ZSD_SOA_SRV.SalesOrder" Multiplicity="*" Role="FromRole_SOItemStat"/>
+                <End Type="ZSD_SOA_SRV.ItemStat" Multiplicity="*" Role="ToRole_SOItemStat"/>
+            </Association>
+            <Association Name="SOHeaderStat" sap:content-version="1">
+                <End Type="ZSD_SOA_SRV.SalesOrder" Multiplicity="*" Role="FromRole_SOHeaderStat"/>
+                <End Type="ZSD_SOA_SRV.HeaderStat" Multiplicity="*" Role="ToRole_SOHeaderStat"/>
+            </Association>
+            <Association Name="SOShipTo" sap:content-version="1">
+                <End Type="ZSD_SOA_SRV.SalesOrder" Multiplicity="*" Role="FromRole_SOShipTo"/>
+                <End Type="ZSD_SOA_SRV.ShipTo" Multiplicity="*" Role="ToRole_SOShipTo"/>
+            </Association>
+            <Association Name="SOLineItem" sap:content-version="1">
+                <End Type="ZSD_SOA_SRV.SalesOrder" Multiplicity="*" Role="FromRole_SOLineItem"/>
+                <End Type="ZSD_SOA_SRV.LineItem" Multiplicity="*" Role="ToRole_SOLineItem"/>
+            </Association>
+            <Association Name="SOSoldTo" sap:content-version="1">
+                <End Type="ZSD_SOA_SRV.SalesOrder" Multiplicity="*" Role="FromRole_SOSoldTo"/>
+                <End Type="ZSD_SOA_SRV.SoldTo" Multiplicity="*" Role="ToRole_SOSoldTo"/>
+            </Association>
+            <Association Name="Message" sap:content-version="1">
+                <End Type="ZSD_SOA_SRV.CreateSO" Multiplicity="*" Role="FromRole_Message"/>
+                <End Type="ZSD_SOA_SRV.Return" Multiplicity="*" Role="ToRole_Message"/>
+            </Association>
+            <Association Name="SoItem" sap:content-version="1">
+                <End Type="ZSD_SOA_SRV.CreateSO" Multiplicity="*" Role="FromRole_SoItem"/>
+                <End Type="ZSD_SOA_SRV.LineItem" Multiplicity="*" Role="ToRole_SoItem"/>
+            </Association>
+            <Association Name="DetKey" sap:content-version="1">
+                <End Type="ZSD_SOA_SRV.DetKeyValue" Multiplicity="*" Role="FromRole_DetKey"/>
+                <End Type="ZSD_SOA_SRV.SalesData" Multiplicity="*" Role="ToRole_DetKey"/>
+            </Association>
+            <EntityContainer Name="ZSD_SOA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="HeaderStats" EntityType="ZSD_SOA_SRV.HeaderStat" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SimulateSOs" EntityType="ZSD_SOA_SRV.SimulateSO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ShipTos" EntityType="ZSD_SOA_SRV.ShipTo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SoldTos" EntityType="ZSD_SOA_SRV.SoldTo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="DetKeyValues" EntityType="ZSD_SOA_SRV.DetKeyValue" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="CreateSOs" EntityType="ZSD_SOA_SRV.CreateSO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="Lineitems" EntityType="ZSD_SOA_SRV.LineItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrders" EntityType="ZSD_SOA_SRV.SalesOrder" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ItemStats" EntityType="ZSD_SOA_SRV.ItemStat" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesDatas" EntityType="ZSD_SOA_SRV.SalesData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="Returns" EntityType="ZSD_SOA_SRV.Return" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SearchHelps" EntityType="ZSD_SOA_SRV.SearchHelp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="DetKeySet" Association="ZSD_SOA_SRV.DetKey" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="DetKeyValues" Role="FromRole_DetKey"/>
+                    <End EntitySet="SalesDatas" Role="ToRole_DetKey"/>
+                </AssociationSet>
+                <AssociationSet Name="SOItemStat_AssocSet" Association="ZSD_SOA_SRV.SOItemStat" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SalesOrders" Role="FromRole_SOItemStat"/>
+                    <End EntitySet="ItemStats" Role="ToRole_SOItemStat"/>
+                </AssociationSet>
+                <AssociationSet Name="SOLineItem_AssocSet" Association="ZSD_SOA_SRV.SOLineItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SalesOrders" Role="FromRole_SOLineItem"/>
+                    <End EntitySet="Lineitems" Role="ToRole_SOLineItem"/>
+                </AssociationSet>
+                <AssociationSet Name="SOSoldTo_AssocSet" Association="ZSD_SOA_SRV.SOSoldTo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SalesOrders" Role="FromRole_SOSoldTo"/>
+                    <End EntitySet="SoldTos" Role="ToRole_SOSoldTo"/>
+                </AssociationSet>
+                <AssociationSet Name="SoItemSet" Association="ZSD_SOA_SRV.SoItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="CreateSOs" Role="FromRole_SoItem"/>
+                    <End EntitySet="Lineitems" Role="ToRole_SoItem"/>
+                </AssociationSet>
+                <AssociationSet Name="SimulateReturnSet" Association="ZSD_SOA_SRV.SimulateReturn" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SimulateSOs" Role="FromRole_SimulateReturn"/>
+                    <End EntitySet="Returns" Role="ToRole_SimulateReturn"/>
+                </AssociationSet>
+                <AssociationSet Name="SimulateItemSet" Association="ZSD_SOA_SRV.SimulateItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SimulateSOs" Role="FromRole_SimulateItem"/>
+                    <End EntitySet="Lineitems" Role="ToRole_SimulateItem"/>
+                </AssociationSet>
+                <AssociationSet Name="SOShipTo_AssocSet" Association="ZSD_SOA_SRV.SOShipTo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SalesOrders" Role="FromRole_SOShipTo"/>
+                    <End EntitySet="ShipTos" Role="ToRole_SOShipTo"/>
+                </AssociationSet>
+                <AssociationSet Name="SOHeaderStat_AssocSet" Association="ZSD_SOA_SRV.SOHeaderStat" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SalesOrders" Role="FromRole_SOHeaderStat"/>
+                    <End EntitySet="HeaderStats" Role="ToRole_SOHeaderStat"/>
+                </AssociationSet>
+                <AssociationSet Name="MessageSet" Association="ZSD_SOA_SRV.Message" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="CreateSOs" Role="FromRole_Message"/>
+                    <End EntitySet="Returns" Role="ToRole_Message"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://sapdgw.iff.com:8000/sap/opu/odata/sap/ZSD_SOA_SRV/$metadata"
+                xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link rel="latest-version" href="http://sapdgw.iff.com:8000/sap/opu/odata/sap/ZSD_SOA_SRV/$metadata"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
